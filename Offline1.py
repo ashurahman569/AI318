@@ -101,6 +101,26 @@ class CustomHeuristic(Heuristic):  #Corner Tiles basically
 
         return md + penalty
 
+class WalkingDistance(Heuristic):
+    def __init__(self):
+        super().__init__(self.calculate)
+
+    def calculate(self, Matrix):
+        n = Matrix.n
+        row_cost = 0
+        col_cost = 0
+        for i in range(n):
+            for j in range(n):
+                v = Matrix.matrix[i][j]
+                if v != 0:
+                    goal_row = (v - 1) // n
+                    goal_col = (v - 1) % n
+                    if goal_row != i:
+                        row_cost += 1
+                    if goal_col != j:
+                        col_cost += 1
+        return row_cost + col_cost
+
 class Matrix:
     def __init__(self, n, g=-1):
         self.n = n
