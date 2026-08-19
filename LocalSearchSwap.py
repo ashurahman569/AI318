@@ -1,4 +1,5 @@
-Your current Local Search uses a 1-flip neighborhood (moving one vertex at a time). It can get stuck in a local optimum where no single vertex wants to move,
+Your current Local Search uses a 1-flip neighborhood (moving one vertex at a time). 
+It can get stuck in a local optimum where no single vertex wants to move,
 but swapping two vertices (one from 𝑋 to 𝑌, and one from 𝑌 to 𝑋) would improve the cut.
 Task: Implement a Swap Local Search. Instead of just evaluating single flips, evaluate the combined gain 
 Δ(𝑢,𝑣) of swapping 𝑢∈𝑋 and 𝑣∈𝑌. The gain is Δ(𝑢,𝑣)=𝛿(𝑢)+𝛿(𝑣)−2⋅𝑤𝑢𝑣   (where 𝑤𝑢𝑣 is the edge weight between them, 
